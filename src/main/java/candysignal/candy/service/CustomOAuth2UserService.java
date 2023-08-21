@@ -40,6 +40,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         }
 
         Users user = userRepository.findByEmail(oAuth2UserInfo.getEmail()).orElse(null);
+
         //이미 가입된 경우
         if (user != null) {
             if (!user.getAuthProvider().equals(authProvider)) {
