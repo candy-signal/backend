@@ -36,6 +36,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     public void onAuthenticationSuccess(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
         String targetUrl = determineTargetUrl(request, response, authentication);
+        System.out.println(request);
+        System.out.println(response);
+
+
         System.out.println("success targetURL : "+targetUrl);
 
         if (response.isCommitted()) {
@@ -43,13 +47,23 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
             return;
         }
         clearAuthenticationAttributes( request,  response);
-        getRedirectStrategy().sendRedirect(request, response, targetUrl);
+
+        try{
+            getRedirectStrategy().sendRedirect(request, response, "candysignal:"+targetUrl);
+            System.out.println("redirect success ");
+        }catch(Exception e){
+            System.out.println("redirect failed : "+e);
+        }
+
+
     }
 
 
     protected String determineTargetUrl(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, Authentication authentication) {
         Optional<String> redirectUri = CookieUtils.getCookie(request, REDIRECT_URI_PARAM_COOKIE_NAME)
                 .map(Cookie::getValue);
+
+        System.out.println("redirectUri : " + redirectUri);
 
         if (redirectUri.isPresent() && !isAuthorizedRedirectUri(redirectUri.get())) {
             throw new RuntimeException("redirect URIs are not matched.");

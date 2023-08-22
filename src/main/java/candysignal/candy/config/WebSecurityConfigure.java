@@ -39,6 +39,7 @@ public class WebSecurityConfigure {
 
         //httpBasic, csrf, formLogin, rememberMe, logout, session disable
         http
+                .httpBasic().disable()
                 .cors()
                 .and()
                 .httpBasic().disable()
@@ -47,10 +48,10 @@ public class WebSecurityConfigure {
                 .rememberMe().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        //요청에 대한 권한 설정
-        http.authorizeRequests()
-                .requestMatchers("/oauth2/**").permitAll()
-                .anyRequest().authenticated();
+//        //요청에 대한 권한 설정
+//        http.authorizeRequests()
+//                .requestMatchers("/oauth2/**").permitAll()
+//                .anyRequest().authenticated();
 
         //oauth2Login
         http.oauth2Login()
