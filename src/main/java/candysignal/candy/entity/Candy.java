@@ -18,6 +18,19 @@ public class Candy {
     @JoinColumn(name="user_id")
     private Users User;
 
+    private String nickanme;
+
+    private String age;
+
+    private String university;
+
+    private Message message;
+
+    private String phone;
+
+    private Contact contact;
+
+
 
 
 
