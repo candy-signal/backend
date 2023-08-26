@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -32,10 +31,31 @@ public class Users extends BaseDateEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
+    private String university;
+
+    private String phone;
+
+    private String certification;
+
+    private String age;
+
+    private String nickname;
+
+    private int coin;
+
     public Users update(OAuth2UserInfo oAuth2UserInfo) {
         this.name = oAuth2UserInfo.getName();
         this.oauth2Id = oAuth2UserInfo.getOAuth2Id();
 
         return this;
     }
+
+
+
+
+
+
+
+
 }
