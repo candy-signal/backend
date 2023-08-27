@@ -11,12 +11,9 @@ import lombok.*;
 public class Candy {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
+    @Column(name = "candy_id")
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private Users User;
 
     private String nickanme;
 
@@ -24,10 +21,14 @@ public class Candy {
 
     private String university;
 
-    private Message message;
-
     private String phone;
 
+    @OneToOne
+    @JoinColumn(name = "message_id")
+    private Message message;
+
+    @OneToOne
+    @JoinColumn(name="contact_id")
     private Contact contact;
 
 
