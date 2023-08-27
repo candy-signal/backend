@@ -9,6 +9,12 @@ public class Message {
     @Column(name = "message_id")
     private Long id;
 
+    private String mbti;
+    private String hobby;
+    private String text;
+
+
+
     @OneToOne(mappedBy = "message")
     private Candy candy;
 
