@@ -1,5 +1,6 @@
 package candysignal.candy.entity;
 
+import candysignal.candy.enums.Approve;
 import jakarta.persistence.*;
 
 
@@ -10,6 +11,8 @@ public class Contact {
     private Long id;
 
     private String phone;
+
+    @Enumerated(EnumType.STRING)
     private Approve approve;
 
     @OneToOne(mappedBy = "contact")

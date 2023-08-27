@@ -8,14 +8,14 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Candy {
+public class Candy  {
 
     @Id
     @GeneratedValue
     @Column(name = "candy_id")
     private Long id;
 
-    private String nickanme;
+    private String nickname;
 
     private String age;
 
@@ -23,17 +23,12 @@ public class Candy {
 
     private String phone;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "message_id")
     private Message message;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="contact_id")
     private Contact contact;
-
-
-
-
-
 
 }
