@@ -31,4 +31,15 @@ public class  Candy  {
     @JoinColumn(name="contact_id")
     private Contact contact;
 
+
+    @Builder
+    public Candy(Long id, String nickname, String age, String university, String phone, Message message, Contact contact) {
+        this.id = id;
+        this.nickname = nickname;
+        this.age = age;
+        this.university = university;
+        this.phone = phone;
+        this.message = message;
+        this.contact = contact;
+    }
 }

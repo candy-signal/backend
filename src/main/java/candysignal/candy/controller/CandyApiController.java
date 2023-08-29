@@ -5,6 +5,6 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @RequiredArgsConstructor
-public class CandyController {
+public class CandyApiController {
 
 }
