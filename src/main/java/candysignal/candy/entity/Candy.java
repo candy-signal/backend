@@ -17,7 +17,7 @@ public class  Candy  {
 
     private String nickname;
 
-    private String age;
+    private int age;
 
     private String university;
 
@@ -33,7 +33,7 @@ public class  Candy  {
 
 
     @Builder
-    public Candy(Long id, String nickname, String age, String university, String phone, Message message, Contact contact) {
+    public Candy(Long id, String nickname, int age, String university, String phone, Message message, Contact contact) {
         this.id = id;
         this.nickname = nickname;
         this.age = age;
