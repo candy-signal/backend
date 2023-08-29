@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Candy  {
+public class  Candy  {
 
     @Id
     @GeneratedValue
