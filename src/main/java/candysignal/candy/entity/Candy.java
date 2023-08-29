@@ -42,4 +42,8 @@ public class  Candy  {
         this.message = message;
         this.contact = contact;
     }
+
+
+
+
 }
