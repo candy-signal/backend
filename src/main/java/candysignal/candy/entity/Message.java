@@ -1,8 +1,13 @@
 package candysignal.candy.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 @Entity
+@Getter
+@Setter
 public class Message {
 
     @Id @GeneratedValue

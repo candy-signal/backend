@@ -5,6 +5,7 @@ import candysignal.candy.entity.Message;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +15,12 @@ public class AddCandyRequest {
     private String nickname;
     private int age;
     private String university;
-    private Message message;
     private String phone;
-    private Contact contact;
+    private String mbti;
+    private String hobby;
+    private String text;
+
+
+
 
 }
