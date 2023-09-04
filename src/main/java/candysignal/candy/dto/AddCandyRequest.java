@@ -21,6 +21,4 @@ public class AddCandyRequest {
     private String text;
 
 
-
-
 }
