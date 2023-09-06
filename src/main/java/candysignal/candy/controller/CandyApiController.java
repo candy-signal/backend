@@ -36,8 +36,6 @@ public class CandyApiController {
     public ResponseEntity<> randomCandy(){
 
 
-
-
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body();
     }
