@@ -2,16 +2,16 @@ package candysignal.candy.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import static jakarta.persistence.FetchType.LAZY;
 
-
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
-public class  Candy  {
+public class CandyHistory {
 
     @Id
     @GeneratedValue
@@ -42,14 +42,14 @@ public class  Candy  {
     @JoinColumn(name="user_id")
     private Users user;
 
-    @Builder
-    public Candy(String nickname, int age, String university, String phone, Message message, Contact contact, Users user) {
-        this.nickname = nickname;
-        this.age = age;
-        this.university = university;
-        this.phone = phone;
-        this.message = message;
-        this.contact = contact;
-        this.user = user;
+
+    public CandyHistory(Candy candy) {
+        this.nickname = candy.getNickname();
+        this.age = candy.getAge();
+        this.university = candy.getUniversity();
+        this.phone = candy.getPhone();
+        this.message = candy.getMessage();
+        this.contact = candy.getContact();
+        this.user = candy.getUser();
     }
 }
