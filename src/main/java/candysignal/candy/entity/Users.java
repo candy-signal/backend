@@ -49,11 +49,6 @@ public class Users extends BaseDateEntity {
     private List<CandyHistory> candyHistorys = new ArrayList<>();
 
 
-
-
-
-
-
     public Users update(OAuth2UserInfo oAuth2UserInfo) {
         this.name = oAuth2UserInfo.getName();
         this.oauth2Id = oAuth2UserInfo.getOAuth2Id();
