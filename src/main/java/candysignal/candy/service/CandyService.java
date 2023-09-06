@@ -4,10 +4,7 @@ package candysignal.candy.service;
 import candysignal.candy.dto.AddCandyRequest;
 import candysignal.candy.dto.AddCandyResponse;
 import candysignal.candy.dto.RandomCandyResponse;
-import candysignal.candy.entity.Candy;
-import candysignal.candy.entity.Contact;
-import candysignal.candy.entity.Message;
-import candysignal.candy.entity.Users;
+import candysignal.candy.entity.*;
 import candysignal.candy.enums.Approve;
 import candysignal.candy.repository.CandyHistoryRepository;
 import candysignal.candy.repository.CandyRepository;
@@ -18,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -71,12 +69,28 @@ public class CandyService {
                 .map(Candy::getId)
                 .collect(Collectors.toList());
 
-        Set<Long> candyHistoryIds =
+        Set<Long> candyHistoryIds = candyHistoryRepository.findAll()
+                .stream()
+                .map(CandyHistory::getCandyId)
+                .collect(Collectors.toSet());
 
+        List<Long> availableCandyIds = allCandyIds.stream()
+                .filter(id->!candyHistoryIds.contains(id))
+                .collect(Collectors.toList());
 
+        if(availableCandyIds.isEmpty()){
+            return null;
+        }
 
+        Long randomCandyId = availableCandyIds.get(new Random().nextInt(availableCandyIds.size()));
 
-        return new RandomCandyResponse(candy);
+        Candy randomCandy = candyRepository.findById(randomCandyId).orElseThrow(IllegalArgumentException::new);
+
+        CandyHistory candyHistory = new CandyHistory(randomCandy);
+
+        candyHistoryRepository.save(candyHistory);
+
+        return new RandomCandyResponse(randomCandy);
     }
 
 }
