@@ -11,7 +11,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 @Setter
 @Entity
-public class  Candy  {
+public class  Candy extends BaseDateEntity {
 
     @Id
     @GeneratedValue
