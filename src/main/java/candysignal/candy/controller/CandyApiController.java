@@ -2,6 +2,7 @@ package candysignal.candy.controller;
 
 import candysignal.candy.dto.AddCandyRequest;
 import candysignal.candy.dto.AddCandyResponse;
+import candysignal.candy.dto.RandomCandyResponse;
 import candysignal.candy.service.CandyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,11 +34,12 @@ public class CandyApiController {
     }
 
     @GetMapping("/api/v1/candy/random")
-    public ResponseEntity<> randomCandy(){
+    public ResponseEntity<RandomCandyResponse> randomCandy(){
 
+        RandomCandyResponse randomCandy =  candyService.randomCandy();
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body();
+                .body(randomCandy);
     }
 
 
