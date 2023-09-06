@@ -3,6 +3,7 @@ package candysignal.candy.service;
 
 import candysignal.candy.dto.AddCandyRequest;
 import candysignal.candy.dto.AddCandyResponse;
+import candysignal.candy.dto.CandyHistoryResponse;
 import candysignal.candy.dto.RandomCandyResponse;
 import candysignal.candy.entity.*;
 import candysignal.candy.enums.Approve;
@@ -92,5 +93,24 @@ public class CandyService {
 
         return new RandomCandyResponse(randomCandy);
     }
+
+    @Transactional
+    public List<CandyHistoryResponse> candyHistory(Long userId){
+
+        List<CandyHistoryResponse> candyHistorys = candyHistoryRepository.findAllByUserId(userId)
+                .stream()
+                .map(this::mapToResponseDTO)
+                .collect(Collectors.toList());
+
+        System.out.println("candyHistorys : "+candyHistorys.toString());
+
+        return candyHistorys;
+    }
+
+    private CandyHistoryResponse mapToResponseDTO(CandyHistory candyHistory) {
+        CandyHistoryResponse candyHistoryResponse = new CandyHistoryResponse(candyHistory);
+        return candyHistoryResponse;
+    }
+
 
 }

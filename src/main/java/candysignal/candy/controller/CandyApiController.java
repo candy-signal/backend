@@ -2,6 +2,7 @@ package candysignal.candy.controller;
 
 import candysignal.candy.dto.AddCandyRequest;
 import candysignal.candy.dto.AddCandyResponse;
+import candysignal.candy.dto.CandyHistoryResponse;
 import candysignal.candy.dto.RandomCandyResponse;
 import candysignal.candy.service.CandyService;
 import lombok.RequiredArgsConstructor;
@@ -41,6 +42,19 @@ public class CandyApiController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(randomCandy);
     }
+
+
+    @GetMapping("/api/v1/candy/mycandy")
+    public ResponseEntity<List<CandyHistoryResponse>> candyHistory(@RequestParam("userId") Long userId){
+
+        List<CandyHistoryResponse> candyHistorys = candyService.candyHistory(userId);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(candyHistorys);
+
+    }
+
+
 
 
 
