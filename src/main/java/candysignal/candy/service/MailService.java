@@ -1,8 +1,10 @@
 package candysignal.candy.service;
 
 
+import candysignal.candy.dto.SendMailRequest;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ public class MailService {
     private static final String senderEmail = "ggprgrkjh2@gmail.com";
     private static int number;
 
+
     public static void createNumber(){
         number = (int)(Math.random()*(90000)) + 100000;
     }
@@ -24,6 +27,7 @@ public class MailService {
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try{
+
             message.setFrom(senderEmail);
             message.setRecipients(MimeMessage.RecipientType.TO,mail);
             message.setSubject("이메일 인증");
@@ -32,18 +36,24 @@ public class MailService {
             body += "<h1>" + number + "</h1>";
             body += "<h3>" + "감사합니다." + "</h3>";
             message.setText(body,"UTF-8","html");
+
         } catch (MessagingException e) {
             e.printStackTrace();
         }
         return message;
     }
 
-    public int sendMail(String mail){
-        MimeMessage message = createMail(mail);
-        javaMailSender.send(message);
+    public int sendMail(SendMailRequest sendMailRequest){
+
+        MimeMessage message = createMail(sendMailRequest.getMail());
+
+        try{
+            javaMailSender.send(message);
+        }catch(Exception e){
+            System.out.println("error log : "+e);
+        }
         return number;
     }
-
 
 
 }
