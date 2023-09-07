@@ -27,6 +27,8 @@ public class Users extends BaseDateEntity {
     private String name;
     private String oauth2Id;
 
+    private String firebaseToken;
+
     @Enumerated(EnumType.STRING)
     private AuthProvider authProvider;
 
@@ -55,4 +57,11 @@ public class Users extends BaseDateEntity {
         return this;
     }
 
+    public String getFirebaseToken() {
+        return firebaseToken;
+    }
+
+    public void setFirebaseToken(String firebaseToken) {
+        this.firebaseToken = firebaseToken;
+    }
 }
