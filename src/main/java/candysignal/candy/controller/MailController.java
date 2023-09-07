@@ -1,6 +1,7 @@
 package candysignal.candy.controller;
 
 
+import candysignal.candy.service.MailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
