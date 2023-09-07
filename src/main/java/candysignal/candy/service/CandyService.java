@@ -1,10 +1,7 @@
 package candysignal.candy.service;
 
 
-import candysignal.candy.dto.AddCandyRequest;
-import candysignal.candy.dto.AddCandyResponse;
-import candysignal.candy.dto.CandyHistoryResponse;
-import candysignal.candy.dto.RandomCandyResponse;
+import candysignal.candy.dto.*;
 import candysignal.candy.entity.*;
 import candysignal.candy.enums.Approve;
 import candysignal.candy.repository.CandyHistoryRepository;
@@ -113,7 +110,9 @@ public class CandyService {
 
         Candy candy = candyRepository.findById(candyId).orElseThrow(IllegalArgumentException::new);
 
-        return CandyPhoneResponse(candy);
+        CandyPhoneResponse candyPhone = new CandyPhoneResponse(candy);
+
+        return candyPhone;
 
     }
 

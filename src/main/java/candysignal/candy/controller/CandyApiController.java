@@ -1,9 +1,6 @@
 package candysignal.candy.controller;
 
-import candysignal.candy.dto.AddCandyRequest;
-import candysignal.candy.dto.AddCandyResponse;
-import candysignal.candy.dto.CandyHistoryResponse;
-import candysignal.candy.dto.RandomCandyResponse;
+import candysignal.candy.dto.*;
 import candysignal.candy.service.CandyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -56,10 +53,12 @@ public class CandyApiController {
 
 
     @GetMapping("/api/v1/candy/phone")
-    public ResponseEntity<>getCandyPhone(@RequestParam("candyId") Long candyId){
+    public ResponseEntity<CandyPhoneResponse>getCandyPhone(@RequestParam("candyId") Long candyId){
 
+        CandyPhoneResponse candyPhoneResponse =  candyService.candyPhone(candyId);
 
-
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(candyPhoneResponse);
     }
 
 
