@@ -1,6 +1,7 @@
 package candysignal.candy.entity;
 
 
+import candysignal.candy.dto.UpdateDeviceTokenRequest;
 import candysignal.candy.enums.AuthProvider;
 import candysignal.candy.enums.Role;
 import candysignal.candy.oauth2.OAuth2UserInfo;
@@ -56,6 +57,13 @@ public class Users extends BaseDateEntity {
         this.oauth2Id = oAuth2UserInfo.getOAuth2Id();
         return this;
     }
+
+    public Users updateDeviceToken(UpdateDeviceTokenRequest request) {
+        this.firebaseToken = request.getFirebaseToken();
+        return this;
+    }
+
+
 
     public String getFirebaseToken() {
         return firebaseToken;

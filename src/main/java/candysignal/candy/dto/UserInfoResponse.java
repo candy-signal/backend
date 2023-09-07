@@ -20,6 +20,8 @@ public class UserInfoResponse {
     private String name;
     private String oauth2Id;
 
+    private String firebaseToken;
+
     private AuthProvider authProvider;
 
     private Role role;

@@ -2,6 +2,7 @@ package candysignal.candy.service;
 
 import candysignal.candy.dto.AddCandyRequest;
 import candysignal.candy.dto.AddCandyResponse;
+import candysignal.candy.dto.UpdateDeviceTokenRequest;
 import candysignal.candy.dto.UserInfoResponse;
 import candysignal.candy.entity.Candy;
 import candysignal.candy.entity.Contact;
@@ -24,5 +25,15 @@ public class UserService {
         Users user = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
         return new UserInfoResponse(user);
     }
+
+
+    @Transactional
+    public UserInfoResponse updateDeviceToken(Long userId, UpdateDeviceTokenRequest request){
+        Users user = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
+        user.updateDeviceToken(request);
+
+        return new UserInfoResponse(user);
+    }
+
 
 }
