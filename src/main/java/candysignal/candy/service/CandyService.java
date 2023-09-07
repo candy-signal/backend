@@ -107,6 +107,23 @@ public class CandyService {
         return candyHistorys;
     }
 
+
+    @Transactional
+    public CandyPhoneResponse candyPhone(Long candyId){
+
+        Candy candy = candyRepository.findById(candyId).orElseThrow(IllegalArgumentException::new);
+
+        return CandyPhoneResponse(candy);
+
+    }
+
+
+
+
+
+
+
+
     private CandyHistoryResponse mapToResponseDTO(CandyHistory candyHistory) {
         CandyHistoryResponse candyHistoryResponse = new CandyHistoryResponse(candyHistory);
         return candyHistoryResponse;

@@ -55,6 +55,14 @@ public class CandyApiController {
     }
 
 
+    @GetMapping("/api/v1/candy/phone")
+    public ResponseEntity<>getCandyPhone(@RequestParam("candyId") Long candyId){
+
+
+
+    }
+
+
 
 
 
