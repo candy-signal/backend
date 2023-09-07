@@ -1,7 +1,5 @@
 package candysignal.candy.controller;
 
-import candysignal.candy.dto.AddCandyRequest;
-import candysignal.candy.dto.AddCandyResponse;
 import candysignal.candy.dto.UserInfoResponse;
 import candysignal.candy.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
-public class UserApiController {
+public class UserController {
 
     private final UserService userService;
 

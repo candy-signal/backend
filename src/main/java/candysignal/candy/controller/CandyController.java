@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class CandyApiController {
+public class CandyController {
 
     private final CandyService candyService;
     @PostMapping("/api/v1/candy")
