@@ -2,6 +2,6 @@ package candysignal.candy.enums;
 
 public enum Approve {
 
-    NONE,PROCEEDING,DONE
+    NONE,PROCEEDING,DONE,FAIL
 
 }

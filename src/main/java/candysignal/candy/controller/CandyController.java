@@ -73,7 +73,7 @@ public class CandyController {
     @PutMapping("/api/v1/candy/contact/request/approval")
     public ResponseEntity<String>requestPhoneApproval(@RequestParam("candyId")Long candyId){
 
-        candyService.requestPhone(candyId);
+        candyService.requestPhoneApproval(candyId);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("request approval");

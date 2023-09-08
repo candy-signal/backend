@@ -129,6 +129,14 @@ public class CandyService {
 
 
 
+    @Transactional
+    public String requestPhoneApproval(Long candyId){
+
+        Candy candy = candyRepository.findById(candyId).orElseThrow(IllegalArgumentException::new);
+        candy.getContact().ApprovalContact();
+        return "request Approval";
+    }
+
 
 
 

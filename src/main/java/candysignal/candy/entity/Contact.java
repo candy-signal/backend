@@ -26,6 +26,9 @@ public class Contact {
     public void requestContact(){
         this.approve = Approve.PROCEEDING;
     }
+    public void ApprovalContact(){
+        this.approve = Approve.DONE;
+    }
 
 
 
