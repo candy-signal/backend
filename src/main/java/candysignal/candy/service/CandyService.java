@@ -133,10 +133,19 @@ public class CandyService {
     public String requestPhoneApproval(Long candyId){
 
         Candy candy = candyRepository.findById(candyId).orElseThrow(IllegalArgumentException::new);
-        candy.getContact().ApprovalContact();
+        candy.getContact().approvalContact();
         return "request Approval";
     }
 
+
+    @Transactional
+    public String requestPhoneRefuse(Long candyId){
+
+        Candy candy = candyRepository.findById(candyId).orElseThrow(IllegalArgumentException::new);
+        candy.getContact().refuseContact();
+        return "request Refuse";
+
+    }
 
 
 
