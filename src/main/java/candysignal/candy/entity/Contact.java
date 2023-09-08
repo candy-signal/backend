@@ -22,4 +22,12 @@ public class Contact {
     @OneToOne(mappedBy = "contact")
     private Candy candy;
 
+
+    public void requestContact(){
+        this.approve = Approve.PROCEEDING;
+    }
+
+
+
+
 }
