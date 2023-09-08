@@ -52,4 +52,5 @@ public class  Candy extends BaseDateEntity {
         this.contact = contact;
         this.user = user;
     }
+
 }

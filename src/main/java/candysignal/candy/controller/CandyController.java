@@ -3,13 +3,11 @@ package candysignal.candy.controller;
 import candysignal.candy.dto.*;
 import candysignal.candy.service.CandyService;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -60,6 +58,21 @@ public class CandyController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(candyPhoneResponse);
     }
+
+
+    @PutMapping("/api/v1/candy/contact/request")
+    public ResponseEntity<String>requestPhone(@RequestParam("candyId")Long candyId){
+
+        candyService.requestPhone(candyID);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("request sended");
+    }
+
+
+
+
+
 
 
 
