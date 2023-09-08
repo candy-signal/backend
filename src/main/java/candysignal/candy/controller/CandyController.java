@@ -63,11 +63,23 @@ public class CandyController {
     @PutMapping("/api/v1/candy/contact/request")
     public ResponseEntity<String>requestPhone(@RequestParam("candyId")Long candyId){
 
-        candyService.requestPhone(candyID);
+        candyService.requestPhone(candyId);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("request sended");
     }
+
+
+    @PutMapping("/api/v1/candy/contact/request/approval")
+    public ResponseEntity<String>requestPhoneApproval(@RequestParam("candyId")Long candyId){
+
+        candyService.requestPhone(candyId);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("request approval");
+    }
+
+
 
 
 
