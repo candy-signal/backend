@@ -79,6 +79,16 @@ public class CandyController {
                 .body("request approval");
     }
 
+    @PutMapping("/api/v1/candy/contact/request/refuse")
+    public ResponseEntity<String>requestPhoneRefuse(@RequestParam("candyId")Long candyId){
+
+        candyService.requestPhoneRefuse(candyId);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("request refuse");
+    }
+
+
 
 
 
