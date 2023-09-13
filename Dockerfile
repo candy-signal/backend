@@ -1,4 +1,6 @@
-FROM openjdk:11
-ARG JAR_FILE=./build/libs/demo-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM openjdk:17-jdk-slim
+WORKDIR /opt
+ENV PORT 8080
+EXPOSE 8080
+COPY target/*.jar /opt/app.jar
+ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
