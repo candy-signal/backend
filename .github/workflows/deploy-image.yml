@@ -33,4 +33,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ggprgrkjh/kubernetes-spring-mysql-demo:latest
+          tags: ggprgrkjh/kubernetes-spring-mysql-demo:2.2
