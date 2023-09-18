@@ -68,13 +68,11 @@ jobs:
             exit 1
           fi
 
-
-
-
       - name: Commit and Push Changes
         run: |
           git config --local user.email "ggprgrkjh@naver.com"
           git config --local user.name "junhyeongkim2"
+          git remote set-url origin https://github.com/candy-signal/backend.git
           git add .
           git commit -m "feat: Update image tag to ${{ env.IMAGE_TAG }}"
           git push
