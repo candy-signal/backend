@@ -70,7 +70,5 @@ jobs:
 
       - name: Commit & Push changes
         uses: actions-js/push@master
-        branch: 'main'
-        message: 'chore: GithubActions auto tag name ${{github.sha}}'
         with:
           github_token: ${{ secrets.GITTOKEN }}
