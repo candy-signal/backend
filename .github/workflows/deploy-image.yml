@@ -54,6 +54,7 @@ jobs:
       - name: Update app-deployment.yaml
         uses: fjogeleit/yaml-update-action@main
         with:
+          context: .
           path: 'Resources/App/app-deployment.yaml'
           regexp: 'image: ggprgrkjh/kubernetes-spring-mysql-demo:.+'
           replace: 'image: ggprgrkjh/kubernetes-spring-mysql-demo:${{ github.sha }}'
