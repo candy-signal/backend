@@ -47,3 +47,4 @@ jobs:
         with:
           push: true
           tags: ggprgrkjh/kubernetes-spring-mysql-demo:latest
+          build-args: JAR_FILE=build/libs/*.jar
