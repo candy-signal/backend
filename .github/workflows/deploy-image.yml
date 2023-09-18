@@ -58,12 +58,17 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
 
 
+
+      - name: Display contents of a file using cat
+        run: cat ./Resources/App/app-deployment.yaml
+
+
       - name: Commit and Push Changes
         run: |
           git config --local user.email "ggprgrkjh@naver.com"
           git config --local user.name "junhyeongkim2"
           git add .
-          git commit -m "Update image tag to ${{ env.IMAGE_TAG }}"
+          git commit -m "feat: Update image tag to ${{ env.IMAGE_TAG }}"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
