@@ -56,6 +56,8 @@ jobs:
         with:
           context: .
           branch: main
+          targetBranch: main
+          masterBranchName: main
           valueFile: 'Resources/App/app-deployment.yaml'
           propertyPath: 'metadata.name'
           value: test
