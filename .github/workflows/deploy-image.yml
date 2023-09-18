@@ -49,4 +49,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ggprgrkjh/kubernetes-spring-mysql-demo:${{IMAGE_TAG}}
+          tags: ggprgrkjh/kubernetes-spring-mysql-demo:${IMAGE_TAG}
