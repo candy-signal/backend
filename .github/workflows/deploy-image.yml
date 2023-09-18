@@ -53,10 +53,22 @@ jobs:
 
       - name: Update image tag
         run: |
-          sed -i 's|image: ggprgrkjh/kubernetes-spring-mysql-demo:.+|image: ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}|' Resources/App/app-deployment.yaml
-          cat Resources/App/app-deployment.yaml
+          sed -i 's|image: ggprgrkjh/kubernetes-spring-mysql-demo:.+|image: ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}|' ./Resources/App/app-deployment.yaml
+          cat ./Resources/App/app-deployment.yaml
         env:
           IMAGE_TAG: ${{ github.sha }}
+
+      - name: Check build result
+        run: |
+          if [ -d ./Resources/App ]; then
+            echo "Contents of ./Resources/App:"
+              ls -al ./Resources/App
+          else
+            echo "./Resources/App directory not found"
+            exit 1
+          fi
+
+
 
 
       - name: Commit and Push Changes
