@@ -55,17 +55,9 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           context: .
-          path: 'Resources/App/app-deployment.yaml'
-          regexp: 'image: ggprgrkjh/kubernetes-spring-mysql-demo:.+'
-          replace: 'image: ggprgrkjh/kubernetes-spring-mysql-demo:${{ github.sha }}'
+          valueFile: 'Resources/App/app-deployment.yaml'
+          propertyPath: 'metadata.name'
+          value: test
+          commitChange: true
+          message: "feat: Update image tag to ${{ env.IMAGE_TAG }}"
 
-
-      - name: Commit and Push Changes
-        run: |
-          git config --local user.email "ggprgrkjh@naver.com"
-          git config --local user.name "junhyeongkim2"
-          git add ./Resources/App/app-deployment.yaml
-          git commit -m "Update image tag to ${{ env.IMAGE_TAG }}"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
