@@ -77,4 +77,4 @@ jobs:
           git commit -m "feat: Update image tag to ${{ env.IMAGE_TAG }}"
           git push --set-upstream origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITTOKEN }}
