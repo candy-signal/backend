@@ -46,5 +46,11 @@ spec:
                 configMapKeyRef:
                   name: mysql-config-map
                   key: mysql-user-username
+            - name: jwt.secret_key
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: jwt-secret-key
+
       imagePullSecrets:
         - name: regcred
