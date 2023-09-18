@@ -19,6 +19,19 @@ jobs:
       - name : Build with Gradle
         run : ./gradlew build
 
+
+      - name: Check build result
+        run: |
+          if [ -d build/libs ]; then
+            echo "Contents of build/libs:"
+              ls -al build/libs
+          else
+            echo "build/libs directory not found"
+            exit 1
+          fi
+        
+        
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -33,4 +46,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ggprgrkjh/kubernetes-spring-mysql-demo:2.2
+          tags: ggprgrkjh/kubernetes-spring-mysql-demo:latest
