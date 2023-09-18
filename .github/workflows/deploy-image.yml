@@ -4,12 +4,9 @@ on:
     branches:
       - main
 jobs:
-
-  environment_variable:
+  build-and-push-image:
     env:
       IMAGE_TAG: latest
-
-  build-and-push-image:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
