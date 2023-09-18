@@ -75,6 +75,6 @@ jobs:
           git remote set-url origin https://github.com/candy-signal/backend.git
           git add .
           git commit -m "feat: Update image tag to ${{ env.IMAGE_TAG }}"
-          git push
+          git push --set-upstream origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
