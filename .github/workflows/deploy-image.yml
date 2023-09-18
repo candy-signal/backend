@@ -6,7 +6,7 @@ on:
 jobs:
   build-and-push-image:
     env:
-      IMAGE_TAG: "latest"
+      IMAGE_TAG: latest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,4 +49,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ggprgrkjh/kubernetes-spring-mysql-demo:${IMAGE_TAG}
+          tags: 'ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}'
