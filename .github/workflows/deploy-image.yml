@@ -1,6 +1,5 @@
 name: Build and Push Docker Image
 on:
-permissions: read-all|write-all
   push:
     branches:
       - main
@@ -69,7 +68,7 @@ jobs:
             exit 1
           fi
 
-      - name: Commit & Push change
+      - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.MY_GITHUB_TOKEN }}
