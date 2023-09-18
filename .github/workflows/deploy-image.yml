@@ -52,18 +52,20 @@ jobs:
           tags: 'ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}'
 
       - name: Update image tag
-        with:
-          context: .
         run: |
           sed -i 's|image: ggprgrkjh/kubernetes-spring-mysql-demo:.+|image: ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}|' ./Resources/App/app-deployment.yaml
         env:
           IMAGE_TAG: ${{ github.sha }}
+        with:
+          context: .
 
 
 
 
       - name: Display contents of a yaml using cat
         run: cat ./Resources/App/app-deployment.yaml
+        with:
+          context: .
 
 
       - name: Commit and Push Changes
