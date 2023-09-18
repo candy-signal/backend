@@ -51,10 +51,12 @@ jobs:
           push: true
           tags: 'ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}'
 
-      - name: Change config repo values.yaml
-        uses: mikefarah/yq@master
-        with:
-         cmd: yq -i '.spec.template.spec.containers.[0].image = "ggprgrkjh/kubernetes-spring-mysql-demo:${{ env.IMAGE_TAG }}"'./Resources/App/app-deployment.yaml
+      - name: Update image tag
+        run: |
+          sed -i 's|image: ggprgrkjh/kubernetes-spring-mysql-demo:test|image: 'ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}'|' ./Resources/App/app-deployment.yaml
+          cat ./Resources/App/app-deployment.yaml
+        env:
+          IMAGE_TAG: ${{github.sha}}
 
       - name: Check update image result
         run: |
