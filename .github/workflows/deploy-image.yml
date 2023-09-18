@@ -73,4 +73,4 @@ jobs:
         branch: 'main'
         message: 'chore: GithubActions auto tag name ${{github.sha}}'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITTOKEN }}
