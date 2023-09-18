@@ -1,6 +1,4 @@
-FROM openjdk:17-jdk-slim
-WORKDIR /opt
-ENV PORT 8080
-EXPOSE 8080
-COPY ./demo-0.0.1-SNAPSHOT.jar /opt/app.jar
-ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
+FROM openjdk:17
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
