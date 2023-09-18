@@ -50,6 +50,10 @@ jobs:
           context: .
           push: true
           tags: 'ggprgrkjh/kubernetes-spring-mysql-demo:${{env.IMAGE_TAG}}'
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7
 
       - name: Update image tag
         run: |
