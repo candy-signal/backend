@@ -32,13 +32,6 @@ jobs:
           fi
       - name: check directory and change directory
          run: ls -al && cd src/main/resources && mkdir firebase && ls -al && cd firebase
-          
-#      - name: create-json
-#        id: create-json
-#        uses: jsdaniell/create-json@v1.2.2
-#        with:
-#          name: "escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json"
-#          json: ${{ secrets.FCM_JSON }}
 
               - name: create-json
                 id: create-json
