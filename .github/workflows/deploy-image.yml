@@ -31,9 +31,11 @@ jobs:
             echo "build/libs directory not found"
             exit 1
           fi
+
+      - name: check directory
+        run: ls -al
           
       - name: create-json
-        run: ls -al
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
