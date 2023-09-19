@@ -30,7 +30,6 @@ jobs:
             echo "build/libs directory not found"
             exit 1
           fi
-        
 
       - name: check directory and change directory
         run: ls -al && cd ./src/main/resources && mkdir firebase && ls -al && cd firebase
@@ -39,14 +38,9 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-         name: "testJson"
+         name: "escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json"
          json: ${{ secrets.FCM_JSON }}
          dir: 'src/main/resources/firebase/'
-
-
-      - name: return to root directory
-        run: cd .. && cd .. && cd .. && ls -al
-
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
