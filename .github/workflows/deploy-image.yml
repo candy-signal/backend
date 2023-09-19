@@ -30,16 +30,18 @@ jobs:
             echo "build/libs directory not found"
             exit 1
           fi
-      - name: check directory and change directory
-         run: ls -al && cd src/main/resources && mkdir firebase && ls -al && cd firebase
+        
 
-              - name: create-json
-                id: create-json
-                uses: jsdaniell/create-json@v1.2.2
-                with:
-                  name: "testJson"
-                  json: ${{ secrets.FCM_JSON }}
-                  dir: 'src/main/resources/firebase/'
+      - name: check directory and change directory
+        run: ls -al && cd ./src/main/resources && mkdir firebase && ls -al && cd firebase
+
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+         name: "testJson"
+         json: ${{ secrets.FCM_JSON }}
+         dir: 'src/main/resources/firebase/'
 
 
       - name: return to root directory
