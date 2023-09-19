@@ -32,8 +32,8 @@ jobs:
             exit 1
           fi
 
-      - name: check directory
-        run: ls -al
+      - name: check directory and change directory
+        run: ls -al && cd src/main/resources && mkdir firebase && cd firebase
           
       - name: create-json
         id: create-json
@@ -41,7 +41,10 @@ jobs:
         with:
           name: "escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json"
           json: ${{ secrets.FCM_JSON }}
-          dir: 'src/main/resources/firebase/'
+
+
+      - name: return to root directory
+        run: cd .. && cd .. && cd .. && cd .. && ls -al
 
 
       - name: Set up Docker Buildx
