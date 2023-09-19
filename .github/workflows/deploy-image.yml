@@ -21,7 +21,6 @@ jobs:
       - name : Build with Gradle
         run : ./gradlew build
 
-
       - name: Check build result
         run: |
           if [ -d build/libs ]; then
@@ -33,18 +32,26 @@ jobs:
           fi
 
       - name: check directory and change directory
-        run: ls -al && cd src/main/resources && mkdir firebase && cd firebase
+        run: ls -al && cd src/main/resources && mkdir firebase && ls-al && cd firebase
           
-      - name: create-json
-        id: create-json
-        uses: jsdaniell/create-json@v1.2.2
-        with:
-          name: "escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json"
-          json: ${{ secrets.FCM_JSON }}
+#      - name: create-json
+#        id: create-json
+#        uses: jsdaniell/create-json@v1.2.2
+#        with:
+#          name: "escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json"
+#          json: ${{ secrets.FCM_JSON }}
+
+              - name: create-json
+                id: create-json
+                uses: jsdaniell/create-json@v1.2.2
+                with:
+                  name: "testJson"
+                  json: ${{ secrets.FCM_JSON }}
+                  dir: 'src/main/resources/firebase/'
 
 
       - name: return to root directory
-        run: cd .. && cd .. && cd .. && cd .. && ls -al
+        run: cd .. && cd .. && cd .. && ls -al
 
 
       - name: Set up Docker Buildx
@@ -82,6 +89,9 @@ jobs:
             echo "./Resources/App directory not found"
             exit 1
           fi
+
+      - name: change directory and delete unused FCM_SECRET
+        run: ls -al && cd src/main/resources/firebase && rm -f testJson
 
       - name: Commit & Push change
         uses: actions-js/push@master
