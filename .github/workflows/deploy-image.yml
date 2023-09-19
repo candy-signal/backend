@@ -79,7 +79,7 @@ jobs:
           fi
 
       - name: change directory and delete unused FCM_SECRET
-        run: ls -al && cd src/main/resources/firebase && rm -f testJson
+        run: ls -al && cd src/main/resources/firebase && rm -f escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json && ls -al
 
       - name: Commit & Push change
         uses: actions-js/push@master
