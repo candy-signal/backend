@@ -31,7 +31,7 @@ jobs:
             exit 1
           fi
       - name: check directory and change directory
-         run: ls -al && cd src/main/resources && mkdir firebase && ls-al && cd firebase
+         run: ls -al && cd src/main/resources && mkdir firebase && ls -al && cd firebase
           
 #      - name: create-json
 #        id: create-json
