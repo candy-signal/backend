@@ -33,7 +33,7 @@ jobs:
           fi
           
       - name: create-json
-      - run: ls -al
+        run: ls -al
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
