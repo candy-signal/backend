@@ -31,8 +31,15 @@ jobs:
             echo "build/libs directory not found"
             exit 1
           fi
-        
-        
+          
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json"
+          json: ${{ secrets.FCM_JSON }}
+          dir: 'src/main/resources/firebase/'
+
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
