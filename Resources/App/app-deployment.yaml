@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-app-spring
-          image: ggprgrkjh/kubernetes-spring-mysql-demo:test
+          image: ggprgrkjh/kubernetes-spring-mysql-demo:434b3d3038f1b42ca038319985cc2792774122de
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
