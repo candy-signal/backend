@@ -43,7 +43,7 @@ jobs:
          dir: 'src/main/resources/firebase/'
 
       - name: check FCM_directory and cat FCM_SECRET
-        run: ls -al && cd ./src/main/resources/firebase && cat escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json
+        run: ls -al && cd ./src/main/resources/firebase && cat escort-8572e-firebase-adminsdk-6yrr0-c77a6887e1.json && ls -al
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
