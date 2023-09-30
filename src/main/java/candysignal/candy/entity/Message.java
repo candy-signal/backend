@@ -21,6 +21,7 @@ public class Message {
 
 
     @OneToOne(mappedBy = "message")
+
     private Candy candy;
 
 }
